@@ -1,0 +1,30 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: alertmanager-config
+  namespace: monitoring
+data:
+  config.yml: |-
+    global:
+      resolve_timeout: 5m
+      smtp_smarthost: 'smtp.mxhichina.com:465'
+      smtp_from: 'boom@example.cn'
+      smtp_auth_username: 'boom@example.cn'
+      smtp_auth_password: 'yourmailpassword'
+    
+    templates:
+      - '/etc/alertmanager-templates/*.tmpl'
+    
+    route:
+      group_by: ['alertname', 'priority']
+      group_wait: 10s
+      group_interval: 10s
+      repeat_interval: 30m
+      receiver: 'email'
+    
+    receivers:
+    - name: 'email'
+      email_configs:
+      - to: 'example@163.com'  # 接收警报的email配置
+        require_tls: false
+        send_resolved: false
