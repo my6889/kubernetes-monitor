@@ -5,7 +5,7 @@
 创建名为monitoring的namespace
 
 ```
-kubectl apply namespace monitoring
+kubectl create namespace monitoring
 ```
 
 创建集群角色
