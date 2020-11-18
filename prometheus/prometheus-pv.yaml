@@ -8,8 +8,11 @@ spec:
        storage: 5Gi
     accessModes:
        - ReadWriteMany
-    persistentVolumeReclaimPolicy: Recycle
-    storageClassName: nfs
-    nfs:
-       path: /data/kubernetes/prometheus
-       server: 172.30.0.208
+    persistentVolumeReclaimPolicy: Retain
+    storageClassName: cfs
+    csi:
+      driver: com.tencent.cloud.csi.cfs
+      volumeAttributes:
+        host: 10.154.0.20
+        path: /prometheus
+      volumeHandle: cfs-gl948iuv

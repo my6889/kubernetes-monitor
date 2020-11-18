@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: grafana
-  namespace: monitoring
 spec:
   replicas: 1
   selector:
@@ -16,17 +15,17 @@ spec:
     spec:
       containers:
       - name: grafana
-        image: grafana/grafana:6.7.1
+        image: grafana/grafana:7.3.2
         ports:
         - name: grafana
           containerPort: 3000
         resources:
           limits:
-            memory: "2Gi"
-            cpu: "1000m"
+            memory: "200Mi"
+            cpu: "0.5"
           requests: 
-            memory: "1Gi"
-            cpu: "500m"
+            memory: "20Mi"
+            cpu: "0.2"
         volumeMounts:
           - mountPath: /var/lib/grafana
             name: grafana-storage

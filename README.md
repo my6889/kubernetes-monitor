@@ -1,5 +1,16 @@
 # Kubernetes-monitor
 
+## Kube-state-metrics
+
+```
+kubectl create namespace ops-monit
+cd kube-state-metrics
+kubectl apply -f ./
+```
+
+参考文档    
+https://github.com/starsliao/Prometheus/tree/master/kubernetes
+
 ## Prometheus
 
 创建名为monitoring的namespace
@@ -123,16 +134,14 @@ https://www.cnblogs.com/jiangwenhui/p/11989470.html
 kubectl apply -f grafana/
 ```
 
-
+推荐Dashboard:    
+```
+8919  (Node_exporter)
+13105 (Kubernetes)
+```
 
 **参考文档**
 
 https://devopscube.com/setup-grafana-kubernetes/ 
 
 
-
----
-
-## PV and PVC
-
-此示例中的PV使用了最简单的NFS作为演示，如果需要更高性能的存储，请按需修改创建PV的存储类型。
