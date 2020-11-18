@@ -8,7 +8,7 @@ cd kube-state-metrics
 kubectl apply -f ./
 ```
 
-参考文档    
+**参考文档** 
 https://github.com/starsliao/Prometheus/tree/master/kubernetes
 
 ## Prometheus
